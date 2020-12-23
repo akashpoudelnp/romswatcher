@@ -49,7 +49,7 @@
               <small>{{$rom->created_at->diffForHumans()}}</small>
             </div>
             <p class="mb-1">{{$rom->description}}</p>
-            <small>Android Version:<b>{{$rom->android_version}}</b> | Device:<i>{{$rom->phone->name}}</i></small>
+            <small>Android Version:<b>{{$rom->android_version}}</b> | Device :<i>{{$rom->phone->name}}</i></small>
           </a> 
            @empty
                
