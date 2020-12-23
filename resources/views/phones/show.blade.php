@@ -1,6 +1,6 @@
 @extends('main.layout')
 @section('content')
-<header class="masthead text-white text-center" style="background: rgb(2,0,36); background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(19,77,128,1) 0%, rgba(124,129,167,1) 48%, rgba(4,18,128,1) 100%);;padding-top: 32px;padding-bottom: 32px;">
+<header class="masthead text-white text-center" style="background: url('{{$phone->image_url}}') center center / cover no-repeat; min-height: 100%; z-index: 1; height: 193px;padding-top: 32px; padding-bottom: 32px;">
     <div class="overlay"></div>
     <div class="container">
         <div class="row" style="background-color:rgba(0, 0, 0, 0.308);">
@@ -17,23 +17,29 @@
         </div>
     </div>
 </header>
-<div class="contianer p-4 bg-white">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="roms-tab" data-toggle="tab" href="#roms" role="tab" aria-controls="roms" aria-selected="true">Roms</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="kernel-tab" data-toggle="tab" href="#kernel" role="tab" aria-controls="kernel" aria-selected="false">Kernerls</a>
-        </li>
-        <li class="nav-item" role="presentation">
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="roms" role="tabpanel" aria-labelledby="roms-tab"> @include('phones.roms') </div>
-        <div class="tab-pane fade" id="kernel" role="tabpanel" aria-labelledby="kernel-tab">Kernel is it.</div>
-        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
-      </div>
+<div class="wrapper m-2">
+  <div class="card bg-dark text-white mt-2 p-2">
+    <div class="card-header">
+      <h3 class="card-title">Roms</h3>
+    </div>
+     <div class="card-body">
+      <ul class="list-unstyled">
+        @forelse ($roms as $rom)
+        <li class="media py-2 shadow mb-2 mt-2" style="background-color: rgba(0, 0, 0, 0.308); border-radius:10px;">
+       <a href="{{ url('roms/'.$rom->id, []) }}">  <img src="{{$rom->image_url}}" height="64" class="mr-3" style=" max-width: 128px;" alt="..."> </a>
+         <div class="media-body">
+           <h5 class="mt-0 mb-1">{{$rom->name}}</h5>
+              For: {{$phone->name}}, Version: {{$rom->verison}}, Android Version: {{$rom->android_version}}
+       </div>
+       </li> 
+        @empty
+           <li class="media">No Roms Found</li> 
+        @endforelse
+         
+         
+       </ul>
+     </div>
+</div>
 </div>
 @endsection
 

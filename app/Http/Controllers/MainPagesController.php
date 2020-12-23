@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Phone;
 use App\Rom;
+use App\Manufacturer;
 class MainPagesController extends Controller
 {
     /**
@@ -27,5 +28,11 @@ class MainPagesController extends Controller
     {
         $data = Phone::select("id","name","code_name","image_url")->where("name","LIKE","%{$request->input('query')}%")->orWhere("code_name","LIKE","%{$request->input('query')}%")->get();
         return response()->json($data);
+    }
+    public function devices()
+    {
+        $phones = Phone::orderBy('created_at')->get()->groupBy('manufacturer');
+       
+       return view('main.devices')->with('phones',$phones);
     }
 }

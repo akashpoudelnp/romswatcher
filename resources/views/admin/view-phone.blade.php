@@ -20,7 +20,9 @@
             </td>
             <td>{{$phone->name}}</td>
            
-            <td>Edit</td>
+            <td>
+                <a href="/admin/editphone/{{$phone->id}}">Edit</a>
+            </td>
             <td>
                 <form action="{{ route('phones.destroy',$phone->id) }}" method="POST">
           

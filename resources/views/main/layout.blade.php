@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="/img/logo-main.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet">
@@ -19,15 +20,30 @@
 </head>
 
 <body style="background: #343a40;  font-family: 'Poppins', sans-serif;">
-    <nav class="navbar navbar-dark navbar-expand navigation-clean" style="background: rgb(11,61,105); background: linear-gradient(90deg, rgba(11,61,105,1) 0%, rgba(9,80,143,1) 50%, rgba(13,60,102,1) 100%);color: rgb(255,255,255);">
-        <div class="container"><a class="navbar-brand" href="{{url('/')}}"><i class="fa fa-mobile-phone"></i>&nbsp;Roms Watcher</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Devices</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Kernels</a></li>
-                </ul>
-            </div>
+    <nav class=" navbar navbar-expand-lg navbar-dark unique-color-dark">
+        <a class="navbar-brand" href="{{url('/')}}"> <img src="/img/logo-main.png" height="30" alt=""> Roms Watcher </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url('/')}}"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('/devices')}}"><i class="fa fa-mobile-phone"></i> Devices</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fa fa-gears"></i> Kernels</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-newspaper-o"></i> Media </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="#">Facebook</a>
+                        <a class="dropdown-item" href="#">Instagram</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </nav>
    @yield('content')

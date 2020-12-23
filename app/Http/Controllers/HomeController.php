@@ -45,4 +45,9 @@ class HomeController extends Controller
        $roms= Rom::orderBy('date','desc')->get();
        return view('admin.view-rom')->with('roms',$roms);
     }
+    public function editphone($id)
+    {
+     $phone= Phone::findOrFail($id);
+     return view('admin.edit-phone')->with('phone',$phone);
+    }
 }

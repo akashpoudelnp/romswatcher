@@ -86,6 +86,14 @@ class PhonesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $phone = Phone::findOrFail($id);
+        $phone->name = $request->input('name');
+        $phone->build_year =  $request->input('build_year');
+        $phone->manufacturer =  $request->input('manufacturer');
+        $phone->code_name = $request->input('code_name');
+        $phone->image_url = $request->input('image_url');
+        $phone->save();
+        return redirect('admin');
     }
 
     /**

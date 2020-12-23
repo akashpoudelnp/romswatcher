@@ -14,6 +14,7 @@ use App\Http\Controllers\MainPagesController;
 */
 
 Route::get('/', [MainPagesController::class, 'index']);
+Route::get('/devices', [MainPagesController::class, 'devices']);
 
 Auth::routes();
 Route::resource('phones','PhonesController');
@@ -24,4 +25,6 @@ Route::get('/admin/addphone', 'HomeController@addphone');
 Route::get('/admin/addrom', 'HomeController@addrom');
 Route::get('/admin/viewphone', 'HomeController@viewphone');
 Route::get('/admin/viewrom', 'HomeController@viewrom');
+Route::get('/admin/editphone/{id}', 'HomeController@editphone');
+
 Route::get('autocomplete', 'MainPagesController@autocomplete')->name('autocomplete');

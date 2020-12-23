@@ -23,7 +23,7 @@
                     <div class="box" style="background: rgb(43,48,52);">
                         <a href="{{ url('phones/'.$phone->id) }}"><img class="rounded img-fluid responsive" src="{{$phone->image_url}}" style="width:120px; height:120px;padding-bottom: 22px;"></a>
                         <h3 class="name" style="color: rgb(187,187,187);">{{$phone->name}}</h3>
-                        <p class="description" style="color: rgb(153,153,153);">Code Name: {{$phone->code_name}}</p>
+                        <p class="description" style="color: rgb(153,153,153);">Code Name: <code>{{$phone->code_name}}</code> </p>
                     </div>
                 </div> 
            @empty
@@ -43,7 +43,7 @@
         <div class="list-group ">
            
            @forelse ($roms as $rom)
-           <a href="/roms/{{$rom->id}}" class="list-group-item list-group-item-secondary mb-1 mt-1 list-group-item-action ">
+           <a href="{{url('/roms/'.$rom->id)}}" class="list-group-item list-group-item-dark active mb-1 mt-1 list-group-item-action ">
             <div class="d-flex w-100 justify-content-between">
               <h5 class="mb-1">{{$rom->name}} (V{{$rom->version}})</h5>
               <small>{{$rom->created_at->diffForHumans()}}</small>
