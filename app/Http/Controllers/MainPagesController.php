@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Phone;
 use App\Rom;
+use App\Kernel;
 use App\Manufacturer;
 class MainPagesController extends Controller
 {
@@ -27,6 +28,11 @@ class MainPagesController extends Controller
     public function autocomplete(Request $request)
     {
         $data = Phone::select("id","name","code_name","image_url")->where("name","LIKE","%{$request->input('query')}%")->orWhere("code_name","LIKE","%{$request->input('query')}%")->get();
+        return response()->json($data);
+    }
+    public function autocompletek(Request $request)
+    {
+        $data = Kernel::select("id","name","developer","image_url")->where("name","LIKE","%{$request->input('query')}%")->get();
         return response()->json($data);
     }
     public function devices()

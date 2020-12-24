@@ -15,16 +15,22 @@ use App\Http\Controllers\MainPagesController;
 
 Route::get('/', [MainPagesController::class, 'index']);
 Route::get('/devices', [MainPagesController::class, 'devices']);
-
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::resource('phones','PhonesController');
 Route::resource('roms','RomsController');
+Route::resource('kernels','KernelsController');
 
 Route::get('/admin', 'HomeController@index');
 Route::get('/admin/addphone', 'HomeController@addphone');
 Route::get('/admin/addrom', 'HomeController@addrom');
+Route::get('/admin/addkernel', 'HomeController@addkernel');
 Route::get('/admin/viewphone', 'HomeController@viewphone');
 Route::get('/admin/viewrom', 'HomeController@viewrom');
+Route::get('/admin/viewkernel', 'HomeController@viewkernel');
+
 Route::get('/admin/editphone/{id}', 'HomeController@editphone');
+Route::get('/admin/editrom/{id}', 'HomeController@editrom');
 
 Route::get('autocomplete', 'MainPagesController@autocomplete')->name('autocomplete');
+Route::get('autocompletek', 'MainPagesController@autocompletek')->name('autocompletek');
+

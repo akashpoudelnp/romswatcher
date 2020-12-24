@@ -48,7 +48,7 @@ class PhonesController extends Controller
         $phone->code_name = $request->input('code_name');
         $phone->image_url = $request->input('image_url');
         $phone->save();
-        return view('admin.index');
+        return redirect('/admin');
     }
 
     /**
@@ -93,7 +93,7 @@ class PhonesController extends Controller
         $phone->code_name = $request->input('code_name');
         $phone->image_url = $request->input('image_url');
         $phone->save();
-        return redirect('admin');
+        return redirect('/admin');
     }
 
     /**
@@ -108,7 +108,7 @@ class PhonesController extends Controller
         $phones = Phone::findorfail($id);
         $phones->roms()->delete();
         $phones->delete();
-        return redirect('admin')->with('success','Deleted');
+        return redirect('/admin')->with('success','Deleted');
         
     }
 }

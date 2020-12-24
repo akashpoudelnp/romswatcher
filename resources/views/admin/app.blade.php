@@ -89,7 +89,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link" href="{{ url('admin/addkernel', []) }}">
                         <span class="fa fa-plus-circle"></span>
                         Add Kernels
                       </a>
@@ -123,7 +123,7 @@
                       </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">
+                      <a class="nav-link" href="{{ url('admin/viewkernel', []) }}">
                         <span data-feather="file-text"></span>
                        Kernels
                       </a>

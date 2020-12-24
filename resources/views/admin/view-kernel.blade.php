@@ -3,7 +3,7 @@
 @section('content')
 <div class="container p-4">
     <div class="card p-2">
-      <h3>View Roms</h3>
+      <h3>View Kernels</h3>
       <hr>
       <table class="table table-striped">
           <tr>
@@ -14,16 +14,16 @@
                 <th></th> 
               <th></th>
           </tr>
-          @forelse ($roms as $rom)
+          @forelse ($kernels as $kernel)
           <tr>
             <td>
-                <img src="{{$rom->image_url}}" width="50" alt="">
+                <img src="{{$kernel->image_url}}" width="50" alt="">
             </td>
-            <td>{{$rom->name}}</td>
+            <td>{{$kernel->name}}</td>
            
-            <td> <a href="{{url('/admin/editrom/'.$rom->id)}}">Edit</a> </td>
+            <td>Edit</td>
             <td>
-                <form action="{{ route('roms.destroy',$rom->id) }}" method="POST">
+                <form action="{{ route('kernels.destroy',$kernel->id) }}" method="POST">
           
                     @csrf
                     @method('DELETE')
@@ -33,7 +33,7 @@
         </tr>
           @empty
             <tr>
-                <td class="" colspan="3">No Roms Added Yet</td>
+                <td class="" colspan="3">No Kernels Added Yet</td>
             </tr>  
           @endforelse
           

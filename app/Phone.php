@@ -12,4 +12,8 @@ class Phone extends Model
     {
         return $this->hasMany(Rom::class);
     }
+    public function kernels()
+    {
+        return $this->hasMany(Kernel::class);
+    }
 }

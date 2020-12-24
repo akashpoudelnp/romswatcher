@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'StrobeDesigns') }}</title>
     <link rel="shortcut icon" href="/img/logo-main.png" type="image/x-icon">
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +21,7 @@
 
 <body style="background: #343a40;  font-family: 'Poppins', sans-serif;">
     <nav class=" navbar navbar-expand-lg navbar-dark unique-color-dark">
-        <a class="navbar-brand" href="{{url('/')}}"> <img src="/img/logo-main.png" height="30" alt=""> Roms Watcher </a>
+        <a class="navbar-brand" href="{{url('/')}}"> <img src="/img/logo-main.png" height="30" alt=""> {{ config('app.name', 'StrobeDesigns') }} </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -34,13 +34,13 @@
                     <a class="nav-link" href="{{url('/devices')}}"><i class="fa fa-mobile-phone"></i> Devices</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="fa fa-gears"></i> Kernels</a>
+                    <a class="nav-link" href="{{url('/kernels')}}"><i class="fa fa-gears"></i> Kernels</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-newspaper-o"></i> Media </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                        <a class="dropdown-item" href="#">Facebook</a>
-                        <a class="dropdown-item" href="#">Instagram</a>
+                        <a class="dropdown-item" href="https://www.t.me/romswatcher">Telegram</a>
+                        <a class="dropdown-item" href="#">XDA</a>
                     </div>
                 </li>
             </ul>
@@ -60,12 +60,13 @@
                         <li class="list-inline-item"><span>⋅</span></li>
                         <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                     </ul>
-                    <p class="text-muted small mb-4 mb-lg-0">© Roms Watcher 2020. All Rights Reserved.</p>
+                    <p class="text-muted small mb-4 mb-lg-0">© Roms Watcher 2020 | © Strobe Designs 2020  All Rights Reserved. </p>
+                     <p class="text-muted small mb-4 mb-lg-0">By: <a href="https://t.me/akashpoudelnp"> <i class="fa fa-telegram"></i> Aakash Poudel</a> and <a href="https://t.me/pawanregmi28"> <i class="fa fa-telegram"></i>  Pawan Regmi</a></p>
                 </div>
                 <div class="col-lg-6 my-auto h-100 text-center text-lg-right">
                     <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.facebook.com/romswatcher"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.twitter.com/romswatcher"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
                         <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
                     </ul>
                 </div>

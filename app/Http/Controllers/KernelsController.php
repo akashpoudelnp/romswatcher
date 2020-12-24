@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rom;
+use App\Kernel;
 use App\Phone;
-class RomsController extends Controller
+use App\Rom;
+class KernelsController extends Controller
 {
     public function __construct()
     {
@@ -20,6 +21,9 @@ class RomsController extends Controller
     public function index()
     {
         //
+        $kernels = Kernel::orderBy('created_at')->get()->groupBy('developer');
+        return view('main.kernels')->with('kernels',$kernels);
+          
     }
 
     /**
@@ -41,17 +45,17 @@ class RomsController extends Controller
     public function store(Request $request)
     {
         //
-        $rom = new Rom;
-        $rom->name = $request->input('name');
-        $rom->phone_id = $request->input('phone_id');
-        $rom->description = $request->input('description');
-        $rom->link = $request->input('link');
-        $rom->version = $request->input('version');
-        $rom->android_version = $request->input('android_version');
-        $rom->developer = $request->input('developer');
-        $rom->image_url = $request->input('image_url');
-        $rom->date = $request->input('date');
-        $rom->save();
+        $kernel = new Kernel;
+        $kernel->name = $request->input('name');
+        $kernel->phone_id = $request->input('phone_id');
+        $kernel->description = $request->input('description');
+        $kernel->link = $request->input('link');
+        $kernel->version = $request->input('version');
+        $kernel->android_version = $request->input('android_version');
+        $kernel->developer = $request->input('developer');
+        $kernel->image_url = $request->input('image_url');
+        $kernel->date = $request->input('date');
+        $kernel->save();
         return redirect('/admin');
     }
 
@@ -64,9 +68,9 @@ class RomsController extends Controller
     public function show($id)
     {
         //
-        $roms = Rom::findOrFail($id);
+        $kernels = Kernel::findOrFail($id);
        
-        return redirect('/admin')->with('roms',$roms);
+        return view('kernels.show')->with('kernels',$kernels);
     }
 
     /**
@@ -90,22 +94,10 @@ class RomsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $rom = Rom::findorfail($id);
-        $rom->name = $request->input('name');
-        $rom->phone_id = $request->input('phone_id');
-        $rom->description = $request->input('description');
-        $rom->link = $request->input('link');
-        $rom->version = $request->input('version');
-        $rom->android_version = $request->input('android_version');
-        $rom->developer = $request->input('developer');
-        $rom->image_url = $request->input('image_url');
-        $rom->date = $request->input('date');
-        $rom->save();
-        return redirect('/admin');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource fkernel storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -113,8 +105,8 @@ class RomsController extends Controller
     public function destroy($id)
     {
         //
-        $roms = Rom::findorfail($id);
-        $roms->delete();
-        return redirect('admin/viewrom')->with('success','Deleted');
+        $kernels = Kernel::findorfail($id);
+        $kernels->delete();
+        return redirect('admin/viewkernel')->with('success','Deleted');
     }
 }
