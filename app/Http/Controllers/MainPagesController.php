@@ -21,7 +21,7 @@ class MainPagesController extends Controller
      */
     public function index()
     {
-        $phones= Phone::orderBy('build_year','desc')->limit(3)->get();
+        $phones= Phone::orderBy('build_year','desc')->limit(6)->get();
          $roms= Rom::orderBy('created_at','desc')->paginate(5);
         return view('main.index')->with('phones',$phones)->with('roms',$roms);
     }

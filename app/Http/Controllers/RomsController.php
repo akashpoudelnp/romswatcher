@@ -19,7 +19,7 @@ class RomsController extends Controller
     public function index()
     {
         //
-        echo "Yay";
+       abort(404);
     }
 
     /**

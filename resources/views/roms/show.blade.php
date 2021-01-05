@@ -30,7 +30,7 @@
               </tr>
               <tr>
                 <td> <b>Android Version: </b> </td>
-                <td>{{$roms->version}}</td>
+                <td>{{$roms->android_version}}</td>
               </tr>
                   <tr>  
                     <td colspan="1"><b>Added On:</b></td>
