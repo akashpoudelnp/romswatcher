@@ -9,7 +9,6 @@ class RomsController extends Controller
 {
     public function __construct()
     {
-        //
       $this->middleware('auth',['except' => ['show', 'index']]);
     }
     /**
@@ -20,6 +19,7 @@ class RomsController extends Controller
     public function index()
     {
         //
+        echo "Yay";
     }
 
     /**
@@ -63,10 +63,8 @@ class RomsController extends Controller
      */
     public function show($id)
     {
-        //
         $roms = Rom::findOrFail($id);
-       
-        return redirect('/admin')->with('roms',$roms);
+        return view('roms.show')->with('roms',$roms);
     }
 
     /**
@@ -101,7 +99,7 @@ class RomsController extends Controller
         $rom->image_url = $request->input('image_url');
         $rom->date = $request->input('date');
         $rom->save();
-        return redirect('/admin');
+        return redirect('/admin/viewphone');
     }
 
     /**
