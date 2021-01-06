@@ -7,6 +7,7 @@
         <div class="row">
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                 @csrf
+                <h4>Devices</h4>
                 <input class="typeahead form-control form-control-lg" type="text" placeholder="Search the device name" style="background: #636363;color: rgb(12,70,128);">
             </div>
         </div>
@@ -15,23 +16,23 @@
 @foreach ($phones as $manufacturer => $phones_list)
     
 
-<div class="features-boxed" style="background: #343a40;">
+<div id="accordion" class="features-boxed" style="background: #343a40;">
     <div class="container">
-        <div class="intro">
+        <div class="intro shadow-sm">
             <div class="d-flex flex-row justify-content-center">
-                <div class="p-2 bd-highlight ">
-                    <img src="//logo.clearbit.com/{{$manufacturer}}.com" style="height: 30px;"  alt="">
-                </div>
-                <div class="p-2 bd-highlight">
-                    <h3 class="text-center p-0 m-0" style="color: rgb(205,208,211);">{{$manufacturer}}</h3>
+               
+                <div class="px-2 bd-highlight">
+                    <button class="btn btn-primary" data-toggle="collapse" data-target="#collapse{{$manufacturer}}" aria-expanded="true" aria-controls="collapse{{$manufacturer}}">
+                        <i class="fa fa-plus"></i> &nbsp;  <img src="//logo.clearbit.com/{{$manufacturer}}.com" style="height: 30px;"  alt=""> {{$manufacturer}}
+                       </button>
                 </div>
               
               </div>
             
         </div>
-        <div class="row justify-content-center features">
+        <div class="row justify-content-center features" >
            @forelse ($phones_list as $phone)
-           <div class="col-sm-6 col-md-5 col-lg-4 item">
+           <div class="collapse col-sm-6 col-md-5 col-lg-4 item" id="collapse{{$manufacturer}}" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="box" style="background: rgb(43,48,52);">
                 <a href="{{ url('phones/'.$phone->id) }}"><img class="rounded img-fluid responsive" src="{{$phone->image_url}}" style="width:120px; height:120px;padding-bottom: 22px;"></a>
                 <h3 class="name" style="color: rgb(187,187,187);">{{$phone->name}}</h3>
@@ -42,13 +43,7 @@
            <div class="col-sm-6 col-md-5 col-lg-4 item">
                No Phones
            </div>
-           @endforelse
-         
-                
-          
-           
-            
-           
+           @endforelse   
         </div>
     </div>
 </div>

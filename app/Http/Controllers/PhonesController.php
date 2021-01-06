@@ -61,7 +61,7 @@ class PhonesController extends Controller
     {
         //
         $phone = Phone::findOrFail($id);
-        $roms=Rom::where('phone_id',$phone->id)->get();
+        $roms=Rom::where('phone_id',$phone->id)->get()->groupBy('android_version');;
         return view('phones.show')->with('phone',$phone)->with('roms',$roms);
     }
 

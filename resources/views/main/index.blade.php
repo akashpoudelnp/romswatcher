@@ -7,7 +7,9 @@
         <div class="row">
             <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
                 @csrf
+              
                 <input class="typeahead form-control form-control-lg" type="text" placeholder="Type the device name" style="background: #636363;color: rgb(12,70,128);">
+           
             </div>
         </div>
     </div>
@@ -67,8 +69,11 @@
         source:  function (query, process) {
             return $.get(path, { query: query }, function (data) {
                 return process(data);
+                
             });
+      
         },
+     
         highlighter: function (item, data) {
             var parts = item.split('#'),
                 html ='<table>';
